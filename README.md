@@ -33,21 +33,23 @@ screen may differ from the current rules.
 
 ## What's new / 最近進展
 
-The latest engine build is **3.4.0** (2026-11-01): 70 turns in a group round, 80 in
-the Final, sudden death over the last ten turns — the last tank standing is the
+The latest engine build is **3.5.1** (2026-11-02): endgames are fought instead of
+stalled — in the last ring the AI goes for the kill instead of waiting. Turn caps
+stay at 70 for a group round and 80 for the Final, the last tank standing is the
 champion, and a real champion always tops the match score.
 
-最新引擎版本為 **3.4.0**（2026-11-01）：小組 70 回合、決賽 80 回合，最後 10 回合
-驟死；最後一輛存活者就是冠軍，真人冠軍保證單場最高分。
+最新引擎版本為 **3.5.1**（2026-11-02）：尾盤不再僵持——進入最後的圈，AI 會主動
+接戰求殺，而不是原地等待。小組 70 回合、決賽 80 回合，最後一輛存活者就是冠軍，
+真人冠軍保證單場最高分。
 
 The rest, briefly: a rebuilt settlement screen, one login button (observer mode or
-PIN), a market that keeps itself up to date, a contract with batch actions and
-multi-asset claims, and a five-model AI audit before the next deployment — see
-*Security & audit* below.
+PIN), a market that keeps itself up to date, a signed commitment for every cycle
+that you can check with *Verify fairness*, a contract with batch actions and
+multi-asset claims, and a five-model AI audit — see *Security & audit* below.
 
 其餘近期工作：結算畫面重做、登入收斂為一個按鈕（觀察模式或 PIN）、市場自行更新、
-合約換上批量操作與多資產領取，並在部署前完成五個 AI 模型的合約審計——見下方
-「安全與審計」。
+每輪都有簽名承諾可用「驗證公平性」自行核對、合約批量操作與多資產領取，以及五個
+AI 模型的合約審計——見下方「安全與審計」。
 
 Read [`docs/changelog.md`](docs/changelog.md) for the dated list, and
 [`docs/devlog.md`](docs/devlog.md) for the longer story behind each change.
@@ -99,8 +101,8 @@ Planned launch defaults — nothing below is live yet.
 | Multiplier ceiling / 倍率上限 | 1.750 (2 × Mythic + white label) |
 | Scored round / 正式輪門檻 | ≥ 25 tanks entered (more than 24, at least 3 arenas) / 報名 ≥ 25 輛（超過 24、至少 3 場） |
 | Grants / 資助 | 5% of the pool released per day, split into hourly contests and the daily top 100 / 每日釋放池的 5%，分為時段爭霸與日榜前 100 |
-| Match seeds / 對戰種子 | BSC block hashes, not Chainlink VRF / 取自 BSC 區塊哈希，未使用 Chainlink VRF |
-| Engine / 引擎 | 3.4.0 (deterministic, integer-only) |
+| Match seeds / 對戰種子 | Signed cycle commitment + BSC block hash, optional hourly on-chain checkpoint / 簽名承諾 + BSC 區塊哈希，可選每小時鏈上檢查點 |
+| Engine / 引擎 | 3.5.1 (deterministic, integer-only) |
 
 ## Security & audit / 安全與審計
 
@@ -108,9 +110,9 @@ The contracts are open source and the verified source is published with every
 deployment. Grants live in a non-upgradeable contract; claims are EIP-712
 cumulative cheques, and every withdrawal from the pool is announced on-chain.
 
-On **2026-11-02**, before the next deployment, we ran an **AI contract audit**.
-Five models reviewed the contract source independently and we compared their
-findings line by line against the code:
+On **2026-11-02** we ran an **AI contract audit** of the contract source. Five
+models reviewed it independently and we compared their findings line by line
+against the code:
 
 | Model |
 | --- |
@@ -122,7 +124,7 @@ findings line by line against the code:
 
 Scope: the contract itself — the NFT, the AI ID gate, tiered reveal, cycle
 anchoring, the grant pool, claims and the built-in market. Confirmed issues were
-fixed before deployment and covered by Foundry tests and a testnet rehearsal.
+fixed and covered by Foundry tests and a testnet rehearsal.
 
 This is an AI-assisted review, not a substitute for a formal third-party audit or
 a bug bounty. If you find something, please tell us privately first:
@@ -131,12 +133,12 @@ a bug bounty. If you find something, please tell us privately first:
 合約已開源，驗證過的原始碼隨每次部署公開。資助放在不可升級的合約裡；領取是
 EIP-712 的累計支票，每一次從資助池提款都會在鏈上公告。
 
-**2026-11-02**，在下一輪部署前，我們做了一輪 **AI 合約審計**：由上述五個模型各自
-獨立審查合約原始碼（Gemini 3.8 Flash、Kimi K3.1 Pro、Gemini 4 Argon、GLM 5.3、
-Opus 5.5），再逐條與程式碼核對。
+**2026-11-02**，我們做了一輪 **AI 合約審計**：由上述五個模型各自獨立審查合約
+原始碼（Gemini 3.8 Flash、Kimi K3.1 Pro、Gemini 4 Argon、GLM 5.3、Opus 5.5），
+再逐條與程式碼核對。
 
 範圍是合約本身——NFT、AI ID 閘門、分檔揭示、週期錨定、資助池、領取與內建市場。
-確認的問題都在部署前修好，並以 Foundry 測試與測試網演練覆蓋。
+確認的問題都修好，並以 Foundry 測試與測試網演練覆蓋。
 
 這是 AI 輔助審查，不取代正式第三方審計與漏洞賞金。若你發現問題，請先私下告訴我們：
 <botwar.xyz@proton.me>，主旨 `SECURITY:`。

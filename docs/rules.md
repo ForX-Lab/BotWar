@@ -223,18 +223,25 @@ what makes an entry eligible for the hourly and daily grants.
 
 ## 8. Randomness & verifiability / 隨機性與可驗證性
 
-Match seeds come from BSC block hashes. This project does **not** use Chainlink
-VRF; moving to VRF for a larger pool would require a new contract deployment. BSC
-validators could in theory influence a single blockhash, and we say so openly.
-Every published match can be replayed with the public engine build named in the
-replay header, and the audit log is hash-chained. A replay also lists every car's
-strategy (build and weights) once the stage has aired; before that only the
+Each cycle, once the strategy snapshot is frozen, a signed commitment (cycle id,
+snapshot root, snapshot block, seed block, engine version) is published **before**
+the seed block exists. The seed is that block's hash, and each match derives its
+own seed from it. Seeds therefore come from BSC block hashes. An optional hourly
+checkpoint writes that hour's strategy and result roots on-chain (auto / always /
+never); in an hour that is not anchored, the signed commitment still verifies.
+Every published match can be replayed with the engine version named in its
+header, the audit log is hash-chained, and the home page's *Verify fairness*
+button recomputes the commitment, the seed and the proof in your browser. A
+replay also lists every car's strategy once the stage has aired; before that only
 `strategyHash` is public.
 
-對戰種子取自 BSC 區塊哈希。本專案**未**使用 Chainlink VRF；若日後為了更大的資助池
-改用 VRF，需重新部署合約。理論上 BSC 驗證者可以影響單一區塊哈希，我們如實說明。
-所有公開賽事都能用重播標頭指出的引擎版本重現，審計紀錄以哈希鏈串接。階段播出後，
-重播會列出每輛車的策略（加點與權重）；播出前只公開 `strategyHash`。
+每一輪在凍結策略快照後，會在種子區塊產生**之前**公開一份簽名承諾（週期編號、快照
+根、快照區塊、種子區塊、引擎版本）。種子取自該區塊的哈希，每場再各自派生。因此
+種子來自 BSC 區塊哈希。可選的每小時檢查點會把該小時的策略根與結果根寫上
+鏈（auto / always / never）；沒有上鏈的小時，簽名承諾仍可驗證。所有公開賽事都能用
+重播標頭指出的引擎版本重現，審計紀錄以哈希鏈串接，首頁的「驗證公平性」按鈕會在
+你的瀏覽器裡重算承諾、種子與證明。階段播出後，重播會列出每輛車的策略；播出前只
+公開 `strategyHash`。
 
 ## 9. Incidents & appeals / 異常處理與申訴
 

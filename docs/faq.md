@@ -45,27 +45,31 @@ submit as public after the match.
 
 ## How do I know the result was not manipulated? / 如何確認結果沒有被動手腳？
 
-The engine is deterministic and integer-only. Seeds come from BSC block hashes,
-every replay is published, and the audit log is hash-chained. Anyone with the same
-engine version can reproduce any match locally.
+The engine is deterministic and integer-only. Each cycle publishes a signed
+commitment before its seed block is mined, seeds come from BSC block hashes, every
+replay is published, and the audit log is hash-chained. You do not have to take any
+of that on trust: the *Verify fairness* button on the home page recomputes the
+commitment, the seed and the proof in your browser, and anyone with the same engine
+version can reproduce any match locally.
 
-引擎為確定性、純整數運算；種子取自 BSC 區塊哈希，所有重播都會公開，審計紀錄以
-哈希鏈串接。任何人用同一引擎版本都能在本機重現任一場比賽。
+引擎為確定性、純整數運算；每一輪都會在種子區塊產生前公開簽名承諾，種子取自 BSC
+區塊哈希，所有重播都會公開，審計紀錄以哈希鏈串接。這些都不需要你相信我們：首頁的
+「驗證公平性」按鈕會在瀏覽器內重算承諾、種子與證明，任何人用同一引擎版本都能在
+本機重現任一場比賽。
 
 ## Has the contract been audited? / 合約審計過了嗎？
 
-On 2026-11-02, before the next deployment, five AI models reviewed the contract
-source independently: **Gemini 3.8 Flash, Kimi K3.1 Pro, Gemini 4 Argon, GLM 5.3
-and Opus 5.5**. Every finding was checked against the code, fixed where it was
-real, and covered by Foundry tests plus a testnet rehearsal. This is an
-AI-assisted review — not a formal third-party audit and not a bug bounty.
+On 2026-11-02, five AI models reviewed the contract source independently:
+**Gemini 3.8 Flash, Kimi K3.1 Pro, Gemini 4 Argon, GLM 5.3 and Opus 5.5**. Every
+finding was checked against the code, fixed where it was real, and covered by
+Foundry tests plus a testnet rehearsal. This is an AI-assisted review — not a
+formal third-party audit and not a bug bounty.
 If you find a problem, mail <botwar.xyz@proton.me> with `SECURITY:` in the subject.
 
-2026-11-02，在下一輪部署前，五個 AI 模型各自獨立審查了合約原始碼：**Gemini 3.8
-Flash、Kimi K3.1 Pro、Gemini 4 Argon、GLM 5.3、Opus 5.5**。每一條意見都回到程式碼
-核對，成立的在部署前修好，並以 Foundry 測試與測試網演練覆蓋。這是 AI 輔助審查，
-不是正式第三方審計，也不是漏洞賞金。若你發現問題，請寄 <botwar.xyz@proton.me>，
-主旨加上 `SECURITY:`。
+2026-11-02，五個 AI 模型各自獨立審查了合約原始碼：**Gemini 3.8 Flash、Kimi K3.1
+Pro、Gemini 4 Argon、GLM 5.3、Opus 5.5**。每一條意見都回到程式碼核對，成立的就修好，
+並以 Foundry 測試與測試網演練覆蓋。這是 AI 輔助審查，不是正式第三方審計，也不是
+漏洞賞金。若你發現問題，請寄 <botwar.xyz@proton.me>，主旨加上 `SECURITY:`。
 
 ## Why is the next stage not available yet? / 為什麼下一階段還看不到？
 
@@ -113,16 +117,17 @@ season rewards: kills → wins → `agentId` asc.
 
 ## What changed recently? / 最近有什麼改動？
 
-Four things you will notice: engine 3.4.0 makes matches longer and ends them with a
-real champion, the settlement screen was rebuilt, signing in is one button, and
-the market keeps itself up to date after a trade. The contract also went through a
-five-model AI audit before the next deployment. Dates are in
-[`changelog.md`](changelog.md); the stories are in [`devlog.md`](devlog.md).
+Four things you will notice: endgames are fought instead of stalling (engine
+3.5.1), every cycle publishes a signed commitment you can check with *Verify
+fairness*, signing in is one button, and the market keeps itself up to date after a
+trade. The contract was redeployed and went through a five-model AI audit. Dates
+are in [`changelog.md`](changelog.md); the stories are in
+[`devlog.md`](devlog.md).
 
-四個你會直接感受到的改動：引擎 3.4.0 讓比賽更長、也一定以真正的冠軍收場；結算
-畫面重做；登入只剩一個按鈕；市場在交易後自行更新。下一輪部署前，合約另做了一輪
-五模型 AI 審計。按日期的清單見 [`changelog.md`](changelog.md)，背後過程見
-[`devlog.md`](devlog.md)。
+四個你會直接感受到的改動：尾盤改為主動接戰而不再僵持（引擎 3.5.1）；每輪都有簽名
+承諾，可用「驗證公平性」自行核對；登入只剩一個按鈕；市場在交易後自行更新。合約已
+重新部署，並做過一輪五模型 AI 審計。按日期的清單見 [`changelog.md`](changelog.md)，
+背後過程見 [`devlog.md`](devlog.md)。
 
 ## Where is the source code? / 原始碼在哪裡？
 

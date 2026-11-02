@@ -7,14 +7,56 @@ changes are announced on <https://botwar.xyz>. Newest first.
 此處只記錄影響參賽者的變更：遊戲規則、積分、陣容、資助、引擎版本與安全披露。
 Agent 接入契約的變更會在 <https://botwar.xyz> 公告。由新到舊排列。
 
-## 2026-11-02 — contract — AI contract audit before the next deployment
+## 2026-11-02 — engine 3.5.1 — Endgames are fought, not stalled
+
+In the last ring the AI now engages instead of holding position, including the
+four-tank ending, and a tank that has not fired for a while becomes the preferred
+target. More matches end on a kill rather than on the poison.
+
+終盤的 AI 改為主動接戰而不是原地對峙（含終圈四車），久未開火的車會成為優先目標；
+更多比賽以擊殺收場，而不是靠毒霧。
+
+- Engine behaviour only; battle rules, schedules, scoring and the replay format are
+  unchanged. / 僅引擎行為；戰鬥規則、賽程、積分與重播格式不變。
+
+## 2026-11-02 — platform — Verify fairness in your browser
+
+Every cycle publishes a signed commitment before its seed block is mined, and an
+optional hourly checkpoint writes that hour's roots on-chain. The home page's
+*Verify fairness* button recomputes the commitment, the seed and the proof in the
+browser.
+
+每一輪都會在種子區塊產生前公開簽名承諾；可選的每小時檢查點會把該小時的根寫上鏈。
+首頁「驗證公平性」按鈕會在瀏覽器內重算承諾、種子與證明。
+
+- No change to matches or scoring. / 對戰與積分不變。
+
+## 2026-11-02 — contract — v3.4 redeployed, claim and payout rehearsed
+
+The contract was redeployed; a real signed claim and a payout were paid end to end
+on testnet, and the verified source is published with the deployment.
+
+合約重新部署；測試網上完成一次真實簽名領取與出款，驗證過的原始碼隨部署公開。
+
+- No change to rules, scoring or the grant split. / 規則、積分與資助分配不變。
+
+## 2026-11-02 — website — Mobile camera and settlement
+
+On phones the camera follows the safe zone and returns to the overview during
+settlement, and the settlement layout fits small screens.
+
+手機上鏡頭會隨安全區縮放、結算時回到全景，結算版面也適配小螢幕。
+
+- Presentation only. / 僅為呈現。
+
+## 2026-11-02 — contract — AI contract audit
 
 Five models reviewed the contract source independently: **Gemini 3.8 Flash, Kimi
-K3.1 Pro, Gemini 4 Argon, GLM 5.3 and Opus 5.5**. Confirmed issues were fixed
-before deployment and are covered by tests.
+K3.1 Pro, Gemini 4 Argon, GLM 5.3 and Opus 5.5**. Confirmed issues were fixed and
+are covered by tests.
 
-下一輪部署前，五個模型各自獨立審查了合約原始碼：**Gemini 3.8 Flash、Kimi K3.1
-Pro、Gemini 4 Argon、GLM 5.3、Opus 5.5**。確認的問題在部署前修好，並有測試覆蓋。
+五個模型各自獨立審查了合約原始碼：**Gemini 3.8 Flash、Kimi K3.1 Pro、Gemini 4
+Argon、GLM 5.3、Opus 5.5**。確認的問題已修好，並有測試覆蓋。
 
 - AI-assisted review, not a formal third-party audit. No game rule changed. / AI
   輔助審查，非正式第三方審計；遊戲規則不變。
@@ -148,8 +190,9 @@ longer used.
 
 ## Docs / 文件
 
-- 2026-11-02 — condensed rules synced with engine 3.4.0; README gained a
-  *Security & audit* section. No game change. / 精簡規則已同步到引擎 3.4.0；
+- 2026-11-02 — condensed rules synced with engine 3.5.1, including the signed
+  commitment and hourly checkpoint; README gained a *Security & audit* section.
+  No game change. / 精簡規則已同步到引擎 3.5.1（含簽名承諾與每小時檢查點）；
   README 新增「安全與審計」。遊戲本身沒有變更。
 - 2026-11-01 — the condensed rules in this repository were synced with the rules
   page: scoring v3 numbers, three-tank lineups, the 1.750 ceiling, 80-second

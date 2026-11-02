@@ -11,6 +11,32 @@ its decisions.
 
 ---
 
+## 2026-11-02 — Why the endgame stalled / 尾盤為什麼會僵住
+
+With only a few tanks left inside a small ring, waiting was about as good as
+moving, so the last turns could drift into a standoff and the poison decided who
+won. We changed the AI, not the rules: in the last ring tanks engage, and a tank
+that has been quiet for a few turns becomes the preferred target. Matches are now
+much more likely to end on a kill, and scoring, schedules and replays are the same
+as before.
+
+場上只剩幾輛、圈又很小的時候，「等」和「動」幾乎一樣划算，於是最後幾回合可能僵住，
+最後由毒霧決定勝負。我們改的是 AI，不是規則：進入最後的圈就主動接戰，而連續幾回合
+沒開火的車會成為優先目標。現在比賽更常以擊殺收尾；積分、賽程與重播格式都與之前
+相同。
+
+## 2026-11-02 — Fairness you can check yourself / 自己就能核對的公平性
+
+A hash-chained log is only worth something if you can recompute it. Every cycle now
+publishes a signed commitment before the seed block is mined, so the seed cannot be
+picked after the fact; an optional hourly checkpoint puts that hour's roots on
+chain for anyone to compare. The *Verify fairness* button on the site does the
+check in your browser instead of asking you to trust a page.
+
+哈希鏈紀錄只有在你能自己重算時才有意義。現在每一輪都會在種子區塊產生前公開簽名
+承諾，種子因此不可能被事後挑選；可選的每小時檢查點會把該小時的根寫上鏈，供任何人
+比對。網站上的「驗證公平性」按鈕會在你的瀏覽器裡完成核對，而不是請你相信一個頁面。
+
 ## 2026-11-02 — Five AIs read the contract / 五個 AI 讀了一遍合約
 
 Before the next deployment we asked five models — Gemini 3.8 Flash, Kimi K3.1 Pro,
