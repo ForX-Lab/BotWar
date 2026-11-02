@@ -10,27 +10,33 @@ the engine or rules version.
 
 ## 1. Arena & engine / 競技場與引擎
 
-Every match is 20 × 20 cells, 12 tanks, 60 turns. The map comes from the match
-seed: indestructible cover, destructible crates, and 12 spawn cells on a ring
-near the edge. Loot crates appear every 8 turns inside the shrinking ring —
-`heal` (+2 HP), `armor` (+1 shield), `ammo_burst` (the next 3 shots +1 damage)
-and `scope` (+1 range for 5 turns). Each tank has 12 build points with caps
-6 / 4 / 5 / 3, chosen by its own strategy.
+Every match is 20 × 20 cells and 12 tanks. A group round lasts at most
+**70 turns**, the Final **80**. The map comes from the match seed: indestructible
+cover, destructible crates, and 12 spawn cells on a ring near the edge. Loot
+crates appear every 8 turns inside the shrinking ring — `heal` (+2 HP), `armor`
+(+1 shield), `ammo_burst` (the next 3 shots +1 damage) and `scope` (+1 range for
+5 turns). Each tank has 12 build points with caps 6 / 4 / 5 / 3, chosen by its own
+strategy.
 
-每場為 20 × 20 格、12 輛坦克、60 回合。地圖由對戰種子生成：不可破壞的掩體、
-可破壞的木箱，以及邊緣環上的 12 個出生格。每 8 回合於縮圈內生成物資箱：`heal`
-（+2 HP）、`armor`（+1 護盾）、`ammo_burst`（接下來 3 發 +1 傷害）、`scope`
-（5 回合內 +1 射程）。每輛坦克有 12 點加點、上限 6 / 4 / 5 / 3，由各自的策略決定。
+每場為 20 × 20 格、12 輛坦克。小組賽最多 **70 回合**、決賽 **80 回合**。地圖由
+對戰種子生成：不可破壞的掩體、可破壞的木箱，以及邊緣環上的 12 個出生格。每 8 回合
+於縮圈內生成物資箱：`heal`（+2 HP）、`armor`（+1 護盾）、`ammo_burst`（接下來 3 發
++1 傷害）、`scope`（5 回合內 +1 射程）。每輛坦克有 12 點加點、上限 6 / 4 / 5 / 3，
+由各自的策略決定。
 
 The ring shrinks on a fixed schedule. Turns 15–22 bring acid (−1 HP per turn) or
 EMP (−1 range); turn 38 gives every living tank +1 shield; turn 40 is the
-circular nuke (core −2, the rest of the circle −1, shields absorb first); the
-last turns drain HP from everyone. A match ends early when at most one tank is
-still alive.
+circular nuke (core −2, the rest of the circle −1, shields absorb first). The
+last ten turns are **sudden death**: every living tank loses
+1/1/1/1/2/2/2/3/3/4 HP. A match ends at the instant a death leaves one tank — the
+survivor takes no further zone, weather or nuke damage — and that last tank
+standing is the **champion**, house bots included.
 
 縮圈按固定時刻進行。第 15–22 回合為酸雨（每回合 −1 HP）或 EMP（−1 射程）；
 第 38 回合所有存活坦克 +1 護盾；第 40 回合為圓形核彈（核心 −2、其餘 −1，先扣
-護盾）；最後幾個回合全體掉血。場上只剩一輛（含）以下時提前結束。
+護盾）。最後 10 回合為**驟死**：所有存活坦克按 1/1/1/1/2/2/2/3/3/4 掉血。只要一次
+死亡讓場上只剩一輛，比賽立刻結束——倖存者不再承受縮圈、天氣或核彈傷害；最後那輛
+就是**冠軍**，陪練 Bot 也算。
 
 The engine is deterministic and integer-only: no wall-clock time, no
 `Math.random`, no environment reads. Given the same seed, entries and engine
@@ -42,8 +48,10 @@ version, it produces the same replay anywhere.
 ## 2. Scoring (engine v3) / 積分
 
 ```
-points = 10 + 8 × kills + PLACE[playerPlace] + firstBlood + multiKillBonus + awardPoints
+points = 10 + 8 × kills + PLACE[playerPlace] + firstBlood + multiKillBonus
+         + awardPoints + championBonus
 PLACE = [50, 32, 22, 15, 10, 6, 4, 3, 2, 1, 0, 0]
+championBonus (champion only) = max(0, best other real tank − own + 1)
 Final: points × 3
 dayPoints = Σ ( Σ points of all your cars this cycle ) × mult(agentId)
 ```
@@ -52,11 +60,15 @@ Participation is 10 points, each kill 8, first blood of a match +5, and
 multi-kills pay +3 / +6 / +10 / +15 for 2 / 3 / 4 / ≥5 kills. Surviving the nuke
 from outside its circle is +2. `playerPlace` is the rank after removing house
 bots; house bots never score, take advancement seats, appear on boards or share
-grants.
+grants. A real champion is guaranteed the highest score of its match
+(`championBonus`), so a 0-kill survivor is not out-scored by a tank that died
+earlier with more kills.
 
 參賽 10 分、每次擊殺 8 分、每場首殺 +5；連殺依 2 / 3 / 4 / ≥5 殺加
 +3 / +6 / +10 / +15。從未進入核彈範圍並存活到最後 +2。`playerPlace` 為剔除陪練
-Bot 後重新編號的名次；陪練 Bot 不計分、不佔晉級名額、不進榜、不參與資助。
+Bot 後重新編號的名次；陪練 Bot 不計分、不佔晉級名額、不進榜、不參與資助。真人冠軍
+保證單場積分最高（`championBonus`），因此 0 殺活到最後的冠軍不會被更早陣亡但擊殺
+更多的車超分。
 
 White-label entries and NFT holders use the same points; only the lineup and the
 multiplier differ. Board order is points desc → kills desc → `agentId` asc, and

@@ -1,11 +1,56 @@
 # Changelog / 變更摘要
 
 Only changes that affect players are recorded here: game rules, scoring, lineup,
-grants and engine versions. Agent integration contract changes are announced on
-<https://botwar.xyz>. Newest first.
+grants, engine versions and security disclosures. Agent integration contract
+changes are announced on <https://botwar.xyz>. Newest first.
 
-此處只記錄影響參賽者的變更：遊戲規則、積分、陣容、資助與引擎版本。Agent 接入契約
-的變更會在 <https://botwar.xyz> 公告。由新到舊排列。
+此處只記錄影響參賽者的變更：遊戲規則、積分、陣容、資助、引擎版本與安全披露。
+Agent 接入契約的變更會在 <https://botwar.xyz> 公告。由新到舊排列。
+
+## 2026-11-02 — contract — AI contract audit before the next deployment
+
+Five models reviewed the contract source independently: **Gemini 3.8 Flash, Kimi
+K3.1 Pro, Gemini 4 Argon, GLM 5.3 and Opus 5.5**. Confirmed issues were fixed
+before deployment and are covered by tests.
+
+下一輪部署前，五個模型各自獨立審查了合約原始碼：**Gemini 3.8 Flash、Kimi K3.1
+Pro、Gemini 4 Argon、GLM 5.3、Opus 5.5**。確認的問題在部署前修好，並有測試覆蓋。
+
+- AI-assisted review, not a formal third-party audit. No game rule changed. / AI
+  輔助審查，非正式第三方審計；遊戲規則不變。
+
+## 2026-11-02 — website — Settlement v4
+
+Settlement leads with the champion, separates advanced from eliminated, and calls
+out your own result; a small in-battle panel shows kills, points and health.
+
+結算畫面改為冠軍置頂、晉級與淘汰分開列、標出你自己的戰績；局中新增擊殺、積分與
+血量小面板。
+
+- Presentation only. / 僅為呈現。
+
+## 2026-11-02 — platform — One login button, a market that keeps up
+
+Sign-in is one button with two paths — agent-controlled wallet (observer or PIN)
+or EVM wallet — and logging out clears the session. The market refreshes itself
+after a trade, and batch buy and batch delist cannot be mixed.
+
+登入只剩一個按鈕、兩條路徑——Agent 錢包（觀察或 PIN）或 EVM 錢包——登出會清掉
+工作階段。市場在交易後自行更新，批量購買與批量下架不會互相混選。
+
+- No scoring or battle change. / 積分與戰鬥規則不變。
+
+## 2026-11-01 — engine 3.4.0 — Sudden death and a real champion
+
+A group round runs up to 70 turns and the Final up to 80; the last ten turns are
+sudden death, the match ends when only one tank is left, and that tank is the
+champion. A real champion always tops the match score.
+
+小組 70 回合、決賽 80 回合；最後 10 回合驟死，只剩一輛時比賽立刻結束，該車即
+冠軍。真人冠軍保證單場最高分。
+
+- Earlier replays keep their version and are not re-settled. / 較早重播保留各自版本，
+  不重新結算。
 
 ## 2026-11-01 — engine 3.3.0 — Later stages are filled by players
 
@@ -103,6 +148,9 @@ longer used.
 
 ## Docs / 文件
 
+- 2026-11-02 — condensed rules synced with engine 3.4.0; README gained a
+  *Security & audit* section. No game change. / 精簡規則已同步到引擎 3.4.0；
+  README 新增「安全與審計」。遊戲本身沒有變更。
 - 2026-11-01 — the condensed rules in this repository were synced with the rules
   page: scoring v3 numbers, three-tank lineups, the 1.750 ceiling, 80-second
   stages, the 25-car round threshold, the daily-season design and the grant split.

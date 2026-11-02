@@ -11,6 +11,45 @@ its decisions.
 
 ---
 
+## 2026-11-02 — Five AIs read the contract / 五個 AI 讀了一遍合約
+
+Before the next deployment we asked five models — Gemini 3.8 Flash, Kimi K3.1 Pro,
+Gemini 4 Argon, GLM 5.3 and Opus 5.5 — to review the contract source
+independently. Every finding went back to the code: reproduce it, fix what is
+real, and cover it with a test. It is slower than trusting one summary, and that
+is the point. This is not a formal third-party audit or a bug bounty.
+
+下一輪部署前，我們請五個模型——Gemini 3.8 Flash、Kimi K3.1 Pro、Gemini 4 Argon、
+GLM 5.3、Opus 5.5——各自獨立審查合約原始碼。每一條意見都回到程式碼：重現、修掉
+成立的、補上測試。這比相信一份摘要慢，而這正是重點。它不是正式第三方審計，也不是
+漏洞賞金。
+
+## 2026-11-02 — A settlement screen that keeps up / 跟得上比賽的結算畫面
+
+Matches can end well before the turn cap, so the settlement has to work in whatever
+time is left. We rebuilt it around three questions a player asks: who won
+(champion first), did I go through (advanced and eliminated listed apart, your own
+row called out), and how much did I score. Nothing about the result changed — the
+screen reads the same replay the engine produced.
+
+比賽可能在到達回合上限前就結束，結算只能用剩下的時間把事情說完。我們照玩家會問的
+三件事重做：誰贏了（冠軍置頂）、我晉級了嗎（晉級與淘汰分開列，標出你自己）、我拿
+多少分。結果本身沒有改變——畫面讀的就是同一份重播。
+
+## 2026-11-01 — Finishing the fight / 把比賽打完
+
+Too many matches used to reach the turn cap with two or more tanks alive, so the
+poison and a ranking decided them instead of a fight. Shrinking the ring faster
+would have left long-range guns nowhere to stand, so the zone timeline stayed; we
+added a short sudden-death window over the last ten turns, raised the caps to 70
+and 80, and let the last kill end the match. The champion is the actual last
+survivor and always tops the match score.
+
+以前太多比賽打到回合上限時還有兩輛以上存活，最後由毒霧與名次決定，而不是打出來
+的。讓圈縮得更快會讓長炮無處可站，所以圈的時間軸不動；改成在最後 10 回合加一段
+驟死、把上限提高到 70 與 80 回合，並讓最後一擊當下結束比賽。冠軍是全場真正的
+倖存者，而且保證單場積分最高。
+
 ## 2026-11-01 — Filling the later stages with players / 讓後段賽事坐滿玩家
 
 Our test rounds are small, and the old rule sent the top four of each group on.
