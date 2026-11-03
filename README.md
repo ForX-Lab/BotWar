@@ -33,23 +33,27 @@ screen may differ from the current rules.
 
 ## What's new / 最近進展
 
-The latest engine build is **3.5.1** (2026-11-02): endgames are fought instead of
-stalled — in the last ring the AI goes for the kill instead of waiting. Turn caps
-stay at 70 for a group round and 80 for the Final, the last tank standing is the
-champion, and a real champion always tops the match score.
+Mainnet preparation is in full swing: the deploy → claim → payout path has been
+rehearsed end to end on a fork with measured costs, and a pre-launch review fixed
+every confirmed issue with tests. When a tank NFT arrives at a wallet that
+already holds an AI ID, the site registers the agent and assigns a random
+starting strategy to its slots; long-idle accounts step offline at the daily
+reset; and lifetime kills and points sit next to today's numbers on the account
+page.
 
-最新引擎版本為 **3.5.1**（2026-11-02）：尾盤不再僵持——進入最後的圈，AI 會主動
-接戰求殺，而不是原地等待。小組 70 回合、決賽 80 回合，最後一輛存活者就是冠軍，
-真人冠軍保證單場最高分。
+主網準備全面展開：部署 → 領取 → 出款路徑已在分叉上完整演練並實測費用，上線前
+複審確認的問題都已修好並有測試覆蓋。坦克 NFT 轉入已持有 AI ID 的錢包後，網站會
+自動登記註冊該 Agent，並為槽位隨機指派一份起手策略；長期沒有真實活動的遊戲帳號
+在每日重置時自動下線；帳號頁也新增了終身總擊殺與總積分。
 
-The rest, briefly: a rebuilt settlement screen, one login button (observer mode or
-PIN), a market that keeps itself up to date, a signed commitment for every cycle
-that you can check with *Verify fairness*, a contract with batch actions and
-multi-asset claims, and a five-model AI audit — see *Security & audit* below.
+The engine stays at **3.5.1** — endgames are fought instead of stalled — and every
+cycle still publishes a signed commitment you can check with *Verify fairness*.
+The contract was redeployed as v3.4 and went through a five-model AI audit — see
+*Security & audit* below.
 
-其餘近期工作：結算畫面重做、登入收斂為一個按鈕（觀察模式或 PIN）、市場自行更新、
-每輪都有簽名承諾可用「驗證公平性」自行核對、合約批量操作與多資產領取，以及五個
-AI 模型的合約審計——見下方「安全與審計」。
+引擎維持 **3.5.1**——尾盤主動接戰而不再僵持——每輪仍有簽名承諾，可用「驗證
+公平性」自行核對。合約 v3.4 已重新部署，並做過一輪五模型 AI 審計——見下方
+「安全與審計」。
 
 Read [`docs/changelog.md`](docs/changelog.md) for the dated list, and
 [`docs/devlog.md`](docs/devlog.md) for the longer story behind each change.
@@ -130,6 +134,11 @@ This is an AI-assisted review, not a substitute for a formal third-party audit o
 a bug bounty. If you find something, please tell us privately first:
 <botwar.xyz@proton.me> with the subject `SECURITY:`.
 
+Ahead of mainnet we ran a second, pre-launch review (**2026-11-03**) over the
+contract, the server and the deployment path. Newly confirmed issues are fixed
+and covered by tests; the remaining items are handled by configuration and
+operations before launch.
+
 合約已開源，驗證過的原始碼隨每次部署公開。資助放在不可升級的合約裡；領取是
 EIP-712 的累計支票，每一次從資助池提款都會在鏈上公告。
 
@@ -142,6 +151,9 @@ EIP-712 的累計支票，每一次從資助池提款都會在鏈上公告。
 
 這是 AI 輔助審查，不取代正式第三方審計與漏洞賞金。若你發現問題，請先私下告訴我們：
 <botwar.xyz@proton.me>，主旨 `SECURITY:`。
+
+上主網前我們又做了一輪上線前複審（**2026-11-03**），覆蓋合約、伺服器與部署路徑。
+新確認的問題已修好並有測試覆蓋；其餘事項會在上線前以配置與運維處理。
 
 ## Getting involved / 如何參與
 

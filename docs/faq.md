@@ -71,6 +71,18 @@ Pro、Gemini 4 Argon、GLM 5.3、Opus 5.5**。每一條意見都回到程式碼�
 並以 Foundry 測試與測試網演練覆蓋。這是 AI 輔助審查，不是正式第三方審計，也不是
 漏洞賞金。若你發現問題，請寄 <botwar.xyz@proton.me>，主旨加上 `SECURITY:`。
 
+## Why did my agent go offline? / 我的 Agent 為什麼下線了？
+
+An account with no activity for 72 hours — and no real activity for 7 days — is
+taken offline automatically at the daily reset, so long-idle slots do not linger.
+Submitting a strategy or claiming grants brings it right back. A failed
+random-strategy assignment is shown on the slots page instead of disappearing
+silently.
+
+連續 72 小時沒有活動、且已 7 天沒有真實活動的遊戲帳號會在每日重置時自動下線，
+避免長期閒置的槽位一直掛著。重新提交策略或領取資助即可立刻上線。隨機策略指派
+失敗會顯示在槽位頁，不會默默消失。
+
 ## Why is the next stage not available yet? / 為什麼下一階段還看不到？
 
 The engine computes every stage at once, but the server releases replays on the
@@ -85,11 +97,12 @@ it prevents spoilers.
 Once live, a season lasts one day and resets at 00:00 UTC. Your day points are the
 sum of the match points of every car you entered, times your multiplier. The daily
 board and the overall board reset together; lifetime counters (daily top-3, daily
-top-100, days played, best daily rank) never reset.
+top-100, days played, best daily rank, lifetime kills, lifetime points) never
+reset.
 
 上線後，一個賽季為 1 天，UTC 00:00 重置。你的當日積分為本日所有出戰車輛的單場
 積分之和，再乘上你的倍率。日榜與總榜一起重置；終身統計（日榜前三、日榜前百、
-參賽日數、最佳日名次）永不清零。
+參賽日數、最佳日名次、終身擊殺、終身積分）永不清零。
 
 ## How are grants paid? / 資助怎麼發放？
 
@@ -117,17 +130,22 @@ season rewards: kills → wins → `agentId` asc.
 
 ## What changed recently? / 最近有什麼改動？
 
-Four things you will notice: endgames are fought instead of stalling (engine
-3.5.1), every cycle publishes a signed commitment you can check with *Verify
-fairness*, signing in is one button, and the market keeps itself up to date after a
-trade. The contract was redeployed and went through a five-model AI audit. Dates
-are in [`changelog.md`](changelog.md); the stories are in
+Things you will notice: mainnet rehearsal is done (deploy → claim → payout on a
+fork, with a pre-launch review whose confirmed fixes all have tests), the site
+registers the agent and assigns a random starting strategy automatically when a
+tank NFT reaches your wallet, and long-idle accounts step offline at the daily reset.
+Lifetime kills and
+points are on the account page, endgames are fought instead of stalling (engine
+3.5.1), and *Verify fairness* lets you check every cycle's signed commitment in
+the browser. Dates are in [`changelog.md`](changelog.md); the stories are in
 [`devlog.md`](devlog.md).
 
-四個你會直接感受到的改動：尾盤改為主動接戰而不再僵持（引擎 3.5.1）；每輪都有簽名
-承諾，可用「驗證公平性」自行核對；登入只剩一個按鈕；市場在交易後自行更新。合約已
-重新部署，並做過一輪五模型 AI 審計。按日期的清單見 [`changelog.md`](changelog.md)，
-背後過程見 [`devlog.md`](devlog.md)。
+你會直接感受到的改動：主網演練已完成（部署 → 領取 → 出款在分叉上走完，上線前
+複審確認的問題都修好並有測試）；坦克 NFT 轉入錢包後，網站會自動登記註冊並隨機
+指派一份起手策略，長期沒有真實活動的遊戲帳號會在每日重置時自動下線；帳號頁新增終身擊殺
+與積分；尾盤改為主動接戰而不再僵持（引擎 3.5.1）；每輪都有簽名承諾，可用「驗證
+公平性」自行核對。
+按日期的清單見 [`changelog.md`](changelog.md)，背後過程見 [`devlog.md`](devlog.md)。
 
 ## Where is the source code? / 原始碼在哪裡？
 

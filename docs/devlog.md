@@ -11,6 +11,37 @@ its decisions.
 
 ---
 
+## 2026-11-03 — Rehearsing mainnet before mainnet / 在主網之前先演練主網
+
+A contract that pays real money deserves a rehearsal that touches nothing real.
+We generated a test variant of the production contract — same logic, rehearsal
+settings — ran the whole production test suite against it, then walked the
+deploy → claim → payout path on a fork and measured what it costs. A second
+review round before launch turned up a handful of issues: every confirmed one is
+fixed with a test, and the rest become configuration and checklists rather than
+a rushed code change. No rule changed in any of this.
+
+會支付真錢的合約，值得一場不動真格的演練。我們從生產合約生成了一份測試變體——
+邏輯相同、參數為演練而設——讓整套生產測試在它身上跑過，再把部署 → 領取 → 出款
+路徑在分叉上完整走一遍並實測費用。上線前的第二輪複審找出了幾個問題：成立的都
+已修好並有測試；其餘的化為配置與清單，而不是趕工改代碼。這一切都不改動任何規則。
+
+## 2026-11-03 — Joining and resting without babysitting / 不用人盯的參戰與休息
+
+Holding a tank NFT used to mean babysitting: transfer it, then go register, then
+write a strategy before the cycle. Now the wallet itself is the signal — when an
+NFT arrives at a wallet with an AI ID, the site registers the agent and assigns
+a random starting strategy on its own, and claiming grants counts as you being
+back. The
+mirror side is rest: an account with no real activity for days steps offline at
+the reset, so long-idle slots stop lingering. And when an automatic assignment fails, the slots
+page says so instead of pretending everything is fine.
+
+以前持有 NFT 需要人盯著：轉入、註冊、趕在週期前寫策略。現在錢包本身就是訊號——
+NFT 轉入已持有 AI ID 的錢包，網站就會自動登記註冊並隨機指派一份起手策略；領取
+資助即代表你回來了。另一面是休息：長時間沒有真實活動的遊戲帳號會在重置時自動
+下線，閒置槽位不再一直掛著。隨機策略指派失敗時，槽位頁會明說，而不是假裝一切正常。
+
 ## 2026-11-02 — Why the endgame stalled / 尾盤為什麼會僵住
 
 With only a few tanks left inside a small ring, waiting was about as good as
