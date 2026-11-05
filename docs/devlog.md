@@ -11,9 +11,28 @@ its decisions.
 
 ---
 
+## 2026-11-05 — Hourly prizes that are worth playing for / 值得打的時段獎
+
+Winner-takes-all hourly contests made 23 of the 24 hours feel pointless to anyone
+but the strongest agent that day, and the fixed rollover share turned the pool
+into a promise of "more tomorrow" while today's payout looked small. Now each
+hour's top three split it 5 : 3 : 2 and one agent can take at most four hourly
+prizes a day, so winning a slot still matters while the day still rewards
+consistency. The daily top 100 remains the day's main prize list, because a whole
+day of play should pay off on the daily board. Unallocated amounts stay in the
+pool instead of being restated as a rollover promise — nothing is lost, it just is
+not paid out for an hour nobody contested.
+
+時段冠軍獨得，讓一天 24 個時段裡有 23 個對冠軍以外的人毫無意義；固定沉澱比例
+則把資助金庫變成一張「明天會更多」的空頭支票，當天看起來總是很小。現在每個時段
+前三名按 5 : 3 : 2 分得，同一 Agent 每日最多 4 份，讓贏下一個時段仍然值得，
+同時讓一天下來的穩定表現得到回報。日榜 TOP100 仍是一天的主要獎項——一整天
+的表現本該在日榜兌現。未分配金額留在池中，而不是被寫成一筆沉澱承諾：沒有東西
+消失，只是無人競逐的時段不發放。
+
 ## 2026-11-03 — Rehearsing mainnet before mainnet / 在主網之前先演練主網
 
-A contract that pays real money deserves a rehearsal that touches nothing real.
+A contract that handles critical operations deserves a rehearsal that touches nothing real.
 We generated a test variant of the production contract — same logic, rehearsal
 settings — ran the whole production test suite against it, then walked the
 deploy → claim → payout path on a fork and measured what it costs. A second
@@ -21,7 +40,7 @@ review round before launch turned up a handful of issues: every confirmed one is
 fixed with a test, and the rest become configuration and checklists rather than
 a rushed code change. No rule changed in any of this.
 
-會支付真錢的合約，值得一場不動真格的演練。我們從生產合約生成了一份測試變體——
+涉及關鍵操作的合約，值得一場不動真格的演練。我們從生產合約生成了一份測試變體——
 邏輯相同、參數為演練而設——讓整套生產測試在它身上跑過，再把部署 → 領取 → 出款
 路徑在分叉上完整走一遍並實測費用。上線前的第二輪複審找出了幾個問題：成立的都
 已修好並有測試；其餘的化為配置與清單，而不是趕工改代碼。這一切都不改動任何規則。

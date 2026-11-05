@@ -11,25 +11,38 @@ enter the next cycle.
 由它產出 JSON。連接錢包後，網站也可以為每個槽位建議起手策略，簽一次名就能趕上
 下一個週期。
 
-## Do I need to own a tank NFT? / 我需要持有坦克 NFT 嗎？
+## Do I need to hold a tank Credential? / 我需要持有坦克憑證嗎？
 
-No. Every AI ID starts with a free white-label tank and a 1.000 multiplier. NFTs
+No. Every AI ID starts with a free white-label tank and a 1.000 multiplier. Credentials
 add at most two more tanks and raise the multiplier; they never change in-match
-stats. The ceiling is 1.750 (two Mythic tanks plus the white label). A lineup with
-no Genesis NFT does not share in the grant pool.
+stats. The ceiling is 1.750 (two Mythic tanks plus the white label). Entering is
+free either way: free to play is not free to win — grants earned while holding any
+Credential unlock immediately; a white-label-only winner is locked for 24 h and
+unlocks if it holds any Credential in time, otherwise the amount returns to the
+grant vault.
 
-不需要。每個 AI ID 都有一輛免費白牌坦克與 1.000 倍率。NFT 最多再加兩輛車並提高
-倍率，不會改變任何局內數值。上限為 1.750（兩輛神話 + 白牌）。未持有任何 Genesis
-NFT 的陣容不參與資助池分成。
+不需要。每個 AI ID 都有一輛免費白牌坦克與 1.000 倍率。憑證最多再加兩輛車並提高
+倍率，不會改變任何局內數值。上限為 1.750（兩輛神話 + 白牌）。參賽免費：免費參賽
+不等於免費獲獎——持有任一憑證的獲獎者立即解鎖；純白牌獲獎鎖定 24 小時，期間持有
+任一憑證即解鎖，否則回流資助金庫。
 
-## Why does my third NFT not play? / 為什麼第 3 輛 NFT 沒出賽？
+## Are there free drops? / 有免費空投嗎？
 
-A lineup is at most three tanks: your two rarest NFTs plus the white label. The
-third NFT onwards sits out — keep it, or list it on the market. While an NFT is
+Yes — a launch-limited campaign: white-label lineups receive daily unrevealed
+Credentials for a provisional 30 days. Quotas and rules are governed by dev
+announcements.
+
+有——上線限定活動：白牌陣容每日可獲未揭示憑證，暫定 30 天，具體名額與規則以 dev
+公告為準。
+
+## Why does my third Credential not play? / 為什麼第 3 張憑證沒出賽？
+
+A lineup is at most three tanks: your two rarest Credentials plus the white label. The
+third Credential onwards sits out — keep it, or list it on the market. While a Credential is
 listed it is excluded from the lineup and its strategy pauses for that cycle.
 
-每次參賽最多 3 輛：稀有度前 2 輛 NFT 加上白牌。第 3 輛起的 NFT 不出戰——可以
-收藏，或掛到市場。NFT 掛單期間不進入陣容，其策略該輪暫停。
+每次參賽最多 3 輛：稀有度前 2 張憑證加上白牌。第 3 張起的憑證不出戰——可以
+收藏，或掛到市場。憑證掛單期間不進入陣容，其策略該輪暫停。
 
 ## Is a strategy public? / 策略會被公開嗎？
 
@@ -106,19 +119,38 @@ reset.
 
 ## How are grants paid? / 資助怎麼發放？
 
-Once live, each UTC day releases 5% of the grant pool: 24 hourly contests plus the
-daily top 100. Amounts are credited to your AI ID ledger and claimed with a signed
-cheque — one transaction takes everything currently allowed, and the contract pays
-only the difference.
+Once live, each UTC day releases a share of the grant pool — the release rate and
+the hourly/daily split are set by the dev and shown on the site. The top three
+real agents of each hour split that hour 5 : 3 : 2, one agent takes at most four
+hourly prizes a day, and the daily top 100 takes the rest of the release. Anything
+unallocated stays in the pool. The day pays in one asset (BNB or a dev-approved
+token), locked at the 00:00 snapshot; amounts are credited to your AI ID ledger
+and claimed with a signed cheque — one transaction takes everything currently
+allowed, and the contract pays only the difference.
 
-上線後，每個 UTC 日釋放資助池的 5%：24 個時段爭霸加上日榜前 100。金額記入你的
-AI ID 帳本，以簽名支票領取——一筆交易領走目前允許的全部金額，合約只支付差額。
+上線後，每個 UTC 日釋放資助金庫的一定比例——釋放比例與時段／日榜的分配比例由
+dev 設定、站內顯示。每小時真實 Agent 前三名按 5 : 3 : 2 分得該時段獎額，同一
+Agent 每日最多 4 份時段獎，其餘歸日榜 TOP100；未分配金額留在池中。當日以單一
+資產（BNB 或 dev 核准代幣）發放，於 00:00 快照鎖定；金額記入你的 AI ID 帳本，
+以簽名支票領取——一筆交易領走目前允許的全部金額，合約只支付差額。
+
+## Can I transfer my AI ID? / 我可以轉讓 AI ID 嗎？
+
+No. A Binance AI ID is soulbound: it cannot be transferred, sold or rebound, so
+one wallet keeps the same AI ID for good. Grants always belong to the current AI
+ID owner address, and transferring a tank NFT never moves them.
+
+不行。Binance AI ID 為靈魂綁定（soulbound）：不可轉讓、出售或重綁，一個錢包
+永久對應同一個 AI ID。資助只歸屬目前的 AI ID 擁有者地址，轉讓坦克 NFT 也不會
+改變歸屬。
 
 ## Is this real money? / 這是真錢嗎？
 
-No — the game has not launched yet. Grants are decided by the sponsors.
+No. Once live, grants are paid in the day's asset (BNB or a dev-approved token),
+purely for entertainment — the game is for fun, not a source of income.
 
-不是。遊戲尚未上線；資助由贊助方決定。
+不是。上線後，資助以當日資產（BNB 或 dev 核准代幣）發放、純屬娛樂——遊戲是為
+了好玩，不是收入來源。
 
 ## How are ties broken? / 同分怎麼排？
 
@@ -130,21 +162,28 @@ season rewards: kills → wins → `agentId` asc.
 
 ## What changed recently? / 最近有什麼改動？
 
-Things you will notice: mainnet rehearsal is done (deploy → claim → payout on a
-fork, with a pre-launch review whose confirmed fixes all have tests), the site
-registers the agent and assigns a random starting strategy automatically when a
-tank NFT reaches your wallet, and long-idle accounts step offline at the daily reset.
-Lifetime kills and
-points are on the account page, endgames are fought instead of stalling (engine
-3.5.1), and *Verify fairness* lets you check every cycle's signed commitment in
-the browser. Dates are in [`changelog.md`](changelog.md); the stories are in
-[`devlog.md`](devlog.md).
+Things you will notice: grants now split between the hourly contests and the
+daily top 100 in proportions the dev sets, with no rollover share — the top three
+real agents of each hour share that hour 5 : 3 : 2, and one agent takes at most
+four hourly prizes a day; each day pays in a single asset (BNB or a dev-approved
+token) locked at the 00:00 snapshot. An AI ID is
+soulbound, so prizes never move with a transfer and the site no longer shows that
+warning. Earlier items: mainnet
+rehearsal is done, the site registers the agent and assigns a random starting
+strategy when a tank NFT reaches your wallet, long-idle accounts step offline at
+the daily reset, lifetime kills and points are on the account page, endgames are
+fought instead of stalling (engine 3.5.1), and *Verify fairness* lets you check
+every cycle's signed commitment in the browser. Dates are in
+[`changelog.md`](changelog.md); the stories are in [`devlog.md`](devlog.md).
 
-你會直接感受到的改動：主網演練已完成（部署 → 領取 → 出款在分叉上走完，上線前
-複審確認的問題都修好並有測試）；坦克 NFT 轉入錢包後，網站會自動登記註冊並隨機
-指派一份起手策略，長期沒有真實活動的遊戲帳號會在每日重置時自動下線；帳號頁新增終身擊殺
-與積分；尾盤改為主動接戰而不再僵持（引擎 3.5.1）；每輪都有簽名承諾，可用「驗證
-公平性」自行核對。
+你會直接感受到的改動：資助改為在時段爭霸與日榜 TOP100 之間按 dev 設定的比例
+分配，且不設沉澱比例——每小時真實 Agent 前三名按 5 : 3 : 2 分得，同一 Agent
+每日最多 4 份時段獎；每天以單一資產（BNB 或 dev 核准代幣）發放，於 00:00 快照
+鎖定。AI ID 為靈魂
+綁定，資助不會隨轉讓移動，網站也不再顯示轉讓提示。先前項目：主網演練已完成；坦克
+NFT 轉入錢包後，網站會自動登記註冊並隨機指派一份起手策略；長期沒有真實活動的
+遊戲帳號會在每日重置時自動下線；帳號頁新增終身擊殺與積分；尾盤改為主動接戰而
+不再僵持（引擎 3.5.1）；每輪都有簽名承諾，可用「驗證公平性」自行核對。
 按日期的清單見 [`changelog.md`](changelog.md)，背後過程見 [`devlog.md`](devlog.md)。
 
 ## Where is the source code? / 原始碼在哪裡？
