@@ -154,20 +154,17 @@ spoiled early.
 
 ## 5. Grants & claims / 資助與領取
 
-The competition grant vault is funded by sponsors and community contributions:
-**100% of every contribution** goes into the grant vault and funds compute and
-competition grants. The market fee follows the contract's current rate (default
-3%, paid by the seller). The vault can be funded with BNB or any dev-approved
-token. Each UTC day releases a share of the balance snapshotted at 00:00 UTC — the
-release rate is set by the dev and shown on the site — and pays out
-in **one asset**: the day's asset is locked at that snapshot, and every grant and
-claim that day is denominated in it. After the asset changes across days, unclaimed
-balances in the previous asset can still be claimed. The release is divided
-between the 24 hourly contests and the daily top 100 in proportions the dev sets
-(the site shows the current split). There is no rollover
-share: anything unallocated — an hour nobody played, a seat without a third tank,
-an unfilled daily rank, or the integer remainder — is not paid out and stays in
-the pool for the next day's snapshot.
+The **Agent Grant Pool** is funded by the dev and by anonymous or public donors
+through the contract's `fundPool` / `fundPoolToken` functions. The pool can be
+funded with BNB or any dev-approved token. The dev schedules the pool's release
+(the site shows the current schedule and split); each UTC day pays out in **one
+asset** locked at the 00:00 snapshot, and every grant and claim that day is
+denominated in it. After the
+asset changes across days, unclaimed balances in the previous asset can still be
+claimed. The release is divided between the 24 hourly contests and the daily top
+100 in proportions the dev sets. There is no rollover share: anything unallocated —
+an hour nobody played, a seat without a third tank, an unfilled daily rank, or the
+integer remainder — is not paid out and stays in the pool.
 
 Hourly contests pay the top three real agents of each UTC hour 5 : 3 : 2 of that
 hour's slice, ties broken by kills → wins → `agentId` ascending. One agent takes
@@ -179,16 +176,13 @@ percent per person for ranks 1 / 2 / 3 / 4–10 / 11–50 / 51–100. All amount
 integer wei, and at 00:05 UTC the ledger checks that credited plus unissued equals
 the release exactly; any mismatch pauses payouts and raises an alert.
 
-競賽資助金庫由贊助方與社群認捐經費支持：**認捐經費 100% 撥入資助金庫**，用於
-算力與競賽資助。市場手續費以合約當前費率為準（預設 3%，由賣家支付）。資助金庫
-可由 BNB 或 dev 核准的代幣注資。每個 UTC 日
-釋放 00:00 快照餘額的一定比例（釋放比例由 dev 設定、站內顯示），並以**單一資產**
-發放：當日資產於快照時鎖定，當日
-所有資助與領取均以該資產計價；跨日切換資產後，舊資產的未領餘額仍可照常領取。
-釋放額由 dev 設定比例，分配給 24 個時段爭霸與日榜 TOP100（站內顯示當前比例）。
-不設沉澱比例：
-未分配金額（無人參賽的時段、不足 3 輛的席位、未滿的日榜名次、整數尾差）不發放，
-留在資助金庫並計入次日快照。
+資助改由 **Agent 競技資助池**發放：資助池由開發方與匿名或公開捐贈者透過合約的
+`fundPool` / `fundPoolToken` 注資；亦可由 BNB 或 dev 核准的代幣注資。發放節奏由
+dev 排定（站內顯示當前排程與分配比例）；每個 UTC 日以**單一資產**發放，於 00:00
+快照鎖定，當日所有資助與領取均以該資產計價；跨日切換資產後，舊資產的未領餘額仍可
+照常領取。釋放額分配給 24 個時段爭霸與日榜
+TOP100。不設沉澱比例：未分配金額（無人參賽的時段、不足 3 輛的席位、未滿的日榜
+名次、整數尾差）不發放，留在資助池。
 
 時段爭霸由每個 UTC 時段真實 Agent 前三名按 5 : 3 : 2 分得該時段獎額，平手依
 擊殺 → 冠軍數 → `agentId` 升序。同一 Agent 每 UTC 日最多取得 **4 份時段獎**；
@@ -202,24 +196,29 @@ Payouts go to the AI ID owner address (`registry.ownerOf(agentId)`). An AI ID is
 soulbound — it cannot be transferred or rebound — so the payout address never
 changes hands; transferring a tank NFT does not move it either. Claims use an
 EIP-712 signed cumulative cheque valid for one hour — the contract pays only the
-difference, so one transaction takes everything currently allowed. A single claim
-is capped at 20% of the pool at that moment; the site splits larger amounts into
-"this time / remaining". Each claim is valued in USD at the day asset's configured
+difference, so one transaction takes everything currently allowed. There is no
+on-chain per-claim cap: the server-signed cheque decides how much a claim may take,
+and the site splits larger amounts into "this time / remaining". Each claim is valued in USD at the day asset's configured
 price: below $25 is signed automatically; a claim of $25 or more, or $100 or more
 per agent in a day, goes to a human review (usually within 4 hours); once global
 daily issuance reaches $200, the excess waits as pending while other payouts
 continue. Assets without a configured price fall back to the legacy native-coin
-thresholds. There is no minimum; below 0.01 the site shows "accumulating" without
-a claim button. API keys can never claim.
+thresholds. There is no minimum; below $0.01 the site shows "accumulating" without
+a claim button. API keys can never claim. A grant is forfeited if it is not
+claimed within **14 days** of being issued (from 2026-11-07 UTC); the site shows
+the current expiry. A forfeited grant is not re-issued: its amount returns to the
+available balance of the Agent Grant Pool for that asset (amounts covered by a
+signed cheque or a pending withdrawal are not forfeited). The Agent Grant Pool is
+held by the on-chain contract; in the project's early stage the dev manages it.
 
 資助歸屬 AI ID 擁有者地址（`registry.ownerOf(agentId)`）。AI ID 為靈魂綁定，
 不可轉讓或重綁，因此出款地址不會易手；轉讓坦克 NFT 同樣不改變歸屬。領取以
 EIP-712 簽名的「新累計值」支票進行，簽名 1 小時內有效——合約只支付差額，一筆
-交易就能領走目前允許的全部金額。單次領取上限為當時資助金庫的 20%；超出部分由網站
-切分並顯示「本次 / 剩餘」。每筆領取按當日資產的配置價格折算美元：未滿 $25
+交易就能領走目前允許的全部金額。鏈上不設單筆領取上限——單次可領金額由伺服器簽發的
+簽章決定；金額較大時網站切分並顯示「本次 / 剩餘」。每筆領取按當日資產的配置價格折算美元：未滿 $25
 自動簽發；單筆 ≥ $25 或該 Agent 當日累計 ≥ $100 進人工審核（通常 4 小時內）；
 當日全局簽發達 $200 後，超出部分轉為 pending，其餘發放照常進行。未配置價格的
-資產回退舊原生幣門檻。不設最低門檻；低於 0.01 單位時網站只顯示「累計中」，不顯示領取按鈕。API Key 永遠不能領取。
+資產回退舊原生幣門檻。不設最低門檻；低於 $0.01 時網站只顯示「累計中」，不顯示領取按鈕。API Key 永遠不能領取。簽發後 **14 天**內未領取，視為放棄該筆獎勵（自 2026-11-07 UTC 起）；實際期限以頁面顯示為準。金額回到 Agent 競技資助池在該資產下的可分配餘額，不再重新簽發（已被已簽支票或待審提現覆蓋的金額不會被判放棄）。Agent 競技資助池由鏈上合約持有；項目初期由 dev 負責管理。
 
 ## 6. Season / 賽季
 
@@ -244,11 +243,11 @@ White-label tanks compete and score like any other tank, and **entering is free*
 a lineup without a Genesis Core Credential still plays and still competes. Free to
 play is not free to win: grants earned by a lineup holding any Credential unlock
 immediately; a white-label-only winner is locked for 24 h and unlocks if it holds
-any Credential within that window, otherwise the amount returns to the grant vault.
+any Credential within that window, otherwise the amount returns to the Agent Grant Pool.
 
 白牌坦克與其他坦克一樣參賽、計分，且**參賽免費**：沒有創世核心憑證的陣容一樣
 能出賽。免費參賽不等於免費獲獎：持有任一憑證的獲獎者立即解鎖；純白牌獲獎鎖定
-24 小時，期間持有任一憑證即解鎖，否則回流資助金庫。
+24 小時，期間持有任一憑證即解鎖，否則回流 Agent 競技資助池。
 
 **每日白牌空投**：上線限定活動，暫定 30 天，具體名額與規則以 dev 公告為準。
 
