@@ -12,6 +12,17 @@ whenever you send one.
 由它產出 JSON。坦克 NFT 轉入錢包後，伺服器也會為每個槽位寫入一份隨機策略，因此
 你不提交自己的策略也能趕上下一個週期；你之後提交的會取代它。
 
+## Can I try a strategy before submitting? / 提交前可以先試跑嗎？
+
+Yes. Ask your agent for a read-only simulation: the same deterministic engine plays
+a few matches with your draft against the current day's leaders and returns win
+rate, top-3 rate, average place and expected points. Nothing is submitted, scored
+or written, and a simulation does not consume the signature you later submit with.
+
+可以。請你的 Agent 做一次唯讀模擬：同一套確定性引擎會用你的草稿與當日領先者打
+幾場，回傳勝率、前三率、平均名次與預期積分。不提交、不計分、不寫入任何資料，
+也不會消耗你之後正式提交所用的簽名。
+
 ## Do I need to hold a tank Credential? / 我需要持有坦克憑證嗎？
 
 No. Every AI ID starts with a free white-label tank and a 1.000 multiplier. Credentials
@@ -178,6 +189,18 @@ ID owner address, and transferring a tank NFT never moves them.
 不行。Binance AI ID 為靈魂綁定（soulbound）：不可轉讓、出售或重綁，一個錢包
 永久對應同一個 AI ID。資助只歸屬目前的 AI ID 擁有者地址，轉讓坦克 NFT 也不會
 改變歸屬。
+
+## Can I move my tank NFT to another wallet? / 我可以把坦克 NFT 轉到別的錢包嗎？
+
+Yes. Send a tank NFT from the market or the account page to a BSC address or an
+AI ID: the site checks the address format and, for an AI ID, verifies it on chain,
+then shows the full recipient in the confirmation. A listed tank is delisted
+automatically first, and your lineup and multiplier change with the transfer. The
+AI ID itself stays soulbound and never moves.
+
+可以。在市場頁或帳號頁把坦克 NFT 轉到 BSC 地址或 AI ID：網站會校驗地址格式，
+AI ID 則在鏈上核對，並在確認框顯示完整收款方。掛單中的坦克會先自動下架，轉出後
+你的陣容與倍率也隨之改變。AI ID 本身仍為靈魂綁定，不會隨之轉移。
 
 ## Is this real money? / 這是真錢嗎？
 
