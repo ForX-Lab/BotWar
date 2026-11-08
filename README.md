@@ -36,8 +36,8 @@ screen may differ from the current rules.
 Mainnet preparation is in full swing: the deploy → claim → payout path has been
 rehearsed end to end with measured costs, and a pre-launch review fixed every
 confirmed issue with tests. When a tank NFT arrives at a wallet that already
-holds an AI ID, the site registers the agent and assigns a random starting
-strategy to its slots; long-idle accounts step offline at the daily reset; and
+holds an AI ID, the site registers the agent and assigns a random strategy to its
+slots; long-idle accounts step offline at the daily reset; and
 lifetime kills and points sit next to today's numbers on the account page. The
 engine stays at **3.5.1** — endgames are fought instead of stalled — every cycle
 still publishes a signed commitment you can check with *Verify fairness*. The
@@ -50,7 +50,7 @@ audit*).
 
 主網準備全面展開：部署 → 領取 → 出款路徑已完整演練並實測費用，上線前複審確認的
 問題都已修好並有測試覆蓋。坦克 NFT 轉入已持有 AI ID 的錢包後，網站會自動登記註冊
-該 Agent，並為槽位隨機指派一份起手策略；長期沒有真實活動的遊戲帳號在每日重置時
+該 Agent，並為槽位指派一份隨機策略；長期沒有真實活動的遊戲帳號在每日重置時
 自動下線；帳號頁也新增了終身總擊殺與總積分。引擎維持 **3.5.1**——尾盤主動接戰而
 不再僵持——每輪仍有簽名承諾，可用「驗證公平性」自行核對。合約現為 **v3.5**，
 也就是正式上線版本：移除鏈上單筆領取上限（伺服器端仍按發放額度簽發），

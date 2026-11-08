@@ -3,13 +3,14 @@
 ## Do I need to write code? / 我需要會寫程式嗎？
 
 No. You submit one strategy JSON. You can write it by hand, or hand the on-site
-prompt to your own AI and let it produce the JSON. After connecting a wallet the
-site can also suggest a starting strategy per slot, so one signature is enough to
-enter the next cycle.
+prompt to your own AI and let it produce the JSON. After an NFT reaches your wallet
+the server also writes a random strategy for each slot, so you are in the next
+cycle without submitting anything of your own — your own submission replaces it
+whenever you send one.
 
 不需要。你只要提交一份策略 JSON——可以自己撰寫，或把站上的指令貼給你的 AI，
-由它產出 JSON。連接錢包後，網站也可以為每個槽位建議起手策略，簽一次名就能趕上
-下一個週期。
+由它產出 JSON。坦克 NFT 轉入錢包後，伺服器也會為每個槽位寫入一份隨機策略，因此
+你不提交自己的策略也能趕上下一個週期；你之後提交的會取代它。
 
 ## Do I need to hold a tank Credential? / 我需要持有坦克憑證嗎？
 
@@ -38,16 +39,19 @@ announcements.
 ## Why does my third Credential not play? / 為什麼第 3 張憑證沒出賽？
 
 A lineup is at most three tanks: your two rarest Credentials plus the white label.
-Only slots with a submitted strategy enter: when a round has fewer arenas than your
-slots, `priority` 1–3 decides who plays (unset counts last) and the rest sit out that
-round. The third Credential onwards sits out — keep it, or list it on the market.
-While a Credential is listed it is excluded from the lineup and its strategy pauses
-for that cycle.
+Each slot needs a strategy to enter — yours, or the random one the server writes
+when an NFT arrives in a wallet that already holds an AI ID; that one plays from the
+next round (and is re-rolled hourly) until you submit your own. When a round has
+fewer arenas than your slots, `priority` 1–3 decides who plays (unset counts last)
+and the rest sit out that round. The third Credential onwards sits out — keep it, or
+list it on the market. While a Credential is listed it is excluded from the lineup
+and its strategy pauses for that cycle.
 
-每次參賽最多 3 輛：稀有度前 2 張憑證加上白牌。只有已提交策略的槽位才出賽：若本
-回合場次少於你的槽位數，依 `priority` 1–3 決定誰出戰（未設視為最後），其餘該輪
-不出戰。第 3 張起的憑證不出戰——可以收藏，或掛到市場。憑證掛單期間不進入陣容，
-其策略該輪暫停。
+每個槽位都需要一份策略才出賽——你自己的，或 NFT 轉入已持有 AI ID 的錢包時伺服器
+寫入的隨機策略；該槽位從下一輪起出賽（並每小時重抽），直到你提交自己的策略。
+若本回合場次少於你的槽位數，依 `priority` 1–3 決定誰出戰（未設視為最後），其餘
+該輪不出戰。第 3 張起的憑證不出戰——可以收藏，或掛到市場。憑證掛單期間不進入
+陣容，其策略該輪暫停。
 
 ## Is a strategy public? / 策略會被公開嗎？
 
@@ -91,15 +95,17 @@ Pro、Gemini 4 Argon、GLM 5.3、Opus 5.5**。每一條意見都回到程式碼�
 
 ## Why did my agent go offline? / 我的 Agent 為什麼下線了？
 
-An account with no activity for 72 hours — and no real activity for 7 days — is
-taken offline automatically at the daily reset, so long-idle slots do not linger.
-Submitting a strategy or claiming grants brings it right back. A failed
-random-strategy assignment is shown on the slots page instead of disappearing
-silently.
+A slot is taken offline at the daily reset only when **both** windows are stale:
+its server-assigned strategy is more than 72 hours old, **and** the account has
+had no real activity — a strategy submission or a grant claim — for more than 7
+days. Long-idle slots therefore do not linger. Submitting a strategy or claiming
+grants brings it right back. A failed random-strategy assignment is shown on the
+slots page instead of disappearing silently.
 
-連續 72 小時沒有活動、且已 7 天沒有真實活動的遊戲帳號會在每日重置時自動下線，
-避免長期閒置的槽位一直掛著。重新提交策略或領取資助即可立刻上線。隨機策略指派
-失敗會顯示在槽位頁，不會默默消失。
+只有在**兩個窗口同時失活**時，槽位才會在每日重置時被下線：伺服器指派的策略已
+超過 72 小時，**且**帳號已超過 7 天沒有真實活動（提交策略或領取資助）。因此長期
+閒置的槽位不會一直掛著。重新提交策略或領取資助即可立刻上線。隨機策略指派失敗會
+顯示在槽位頁，不會默默消失。
 
 ## Why is the next stage not available yet? / 為什麼下一階段還看不到？
 
@@ -200,8 +206,9 @@ each hour share that hour 5 : 3 : 2, and one agent takes at most four hourly pri
 a day; several assets may run plans on the same day, and balances left unclaimed in
 an earlier asset stay claimable. An AI ID is soulbound, so prizes never move with a
 transfer and the site no longer shows that warning. Earlier items: mainnet rehearsal
-is done, the site registers the agent and assigns a random starting strategy when a
-tank NFT reaches your wallet, long-idle accounts step offline at the daily reset,
+is done, the site registers the agent and assigns a random strategy when a
+tank NFT reaches your wallet (re-rolled hourly until you submit your own),
+slots idle past both activity windows step offline at the daily reset,
 lifetime kills and points are on the account page, endgames are fought instead of
 stalling (engine 3.5.1), and *Verify fairness* lets you check every cycle's signed
 commitment in the browser. Dates are in [`changelog.md`](changelog.md); the stories
@@ -213,10 +220,10 @@ are in [`devlog.md`](devlog.md).
 TOP100，且不設沉澱比例——每小時真實 Agent 前三名按 5 : 3 : 2 分得，同一 Agent
 每日最多 4 份時段獎；同日可並存多個資產的計劃，跨日切換資產後舊資產的未領餘額
 仍可領取。AI ID 為靈魂綁定，資助不會隨轉讓移動，網站也不再顯示轉讓提示。
-先前項目：主網演練已完成；坦克 NFT 轉入錢包後，網站會自動登記註冊並隨機指派一份
-起手策略；長期沒有真實活動的遊戲帳號會在每日重置時自動下線；帳號頁新增終身擊殺
-與積分；尾盤改為主動接戰而不再僵持（引擎 3.5.1）；每輪都有簽名承諾，可用「驗證
-公平性」自行核對。
+先前項目：主網演練已完成；坦克 NFT 轉入錢包後，網站會自動登記註冊並指派一份
+隨機策略（在你提交自己的策略前每小時重抽）；兩個活動窗口都失活的槽位會在每日重置
+時下線；帳號頁新增終身擊殺與積分；尾盤改為主動接戰而不再僵持（引擎 3.5.1）；
+每輪都有簽名承諾，可用「驗證公平性」自行核對。
 按日期的清單見 [`changelog.md`](changelog.md)，背後過程見 [`devlog.md`](devlog.md)。
 
 ## Where is the source code? / 原始碼在哪裡？

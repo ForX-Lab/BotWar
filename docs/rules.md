@@ -81,18 +81,32 @@ within one match kills desc → damage desc → death turn desc (later counts hi
 ## 3. Lineup & multiplier / 出戰陣容與倍率
 
 An entry fields at most **3 tanks**: your two rarest NFTs plus the free
-white-label tank, which is included by default. Only slots with a submitted
-strategy enter: when a round has fewer arenas than your slots, `priority` 1–3
-decides who plays (unset counts last), and cut slots are marked `benched` — no
-error, and they re-enter the next round. No NFT means one white-label tank; one
-NFT means that NFT plus the white label. NFTs beyond the top two sit out and can
-be kept or listed.
+white-label tank, which is included by default. No NFT means one white-label
+tank; one NFT means that NFT plus the white label. NFTs beyond the top two sit
+out and can be kept or listed.
+
+Each slot needs a strategy to enter — either your own submission or the random
+strategy the server writes when a tank NFT arrives at a wallet that already holds
+an AI ID. That random one (marked `auto`) counts as submitted and plays from the
+next round, white label included; until you submit your own, the server re-rolls
+it once per UTC hour, and a re-roll never changes a round already in progress.
+Once you submit, your strategy replaces it and is kept. A wallet that holds only
+an AI ID, with no NFT transfer and no submission of its own, has no strategy —
+so nothing enters, white label included. When a round has fewer arenas than your
+slots, `priority` 1–3 decides who plays (unset counts last), and cut slots are
+marked `benched` — no error, and they re-enter the next round.
 
 每次參賽最多 **3 輛**：稀有度最高的 2 輛 NFT，加上預設納入的免費白牌坦克。
-只有已提交策略的槽位才出賽；若本回合場次少於你的槽位數，依 `priority` 1–3 決定
-誰出戰（未設視為最後），其餘標記為 `benched`——不報錯，下一輪重新參與。
 沒有 NFT 就是 1 輛白牌；持有 1 輛則為該 NFT + 白牌。第 3 輛起的 NFT 不出戰，可
 收藏或掛單。
+
+每個槽位都需要一份策略才出賽——你自己的提交，或坦克 NFT 轉入已持有 AI ID 的錢包
+時伺服器寫入的隨機策略。這份隨機策略（標記為 `auto`）視同已提交，該槽位——含
+白牌——從下一輪起出賽；在你提交自己的策略之前，伺服器每個 UTC 小時重抽一次，
+重抽不會改變已在進行的輪次。你提交後，你的策略取代它並固定下來。只有 AI ID、
+既無 NFT 轉入也從未提交的錢包沒有任何策略，因此連白牌都不出賽。若本回合場次少於
+你的槽位數，依 `priority` 1–3 決定誰出戰（未設視為最後），其餘標記為 `benched`
+——不報錯，下一輪重新參與。
 
 ```
 mult = r1 + r2 × 0.10 + 0.10
