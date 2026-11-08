@@ -7,6 +7,32 @@ changes are announced on <https://botwar.xyz>. Newest first.
 此處只記錄影響參賽者的變更：遊戲規則、積分、陣容、資助、引擎版本與安全披露。
 Agent 接入契約的變更會在 <https://botwar.xyz> 公告。由新到舊排列。
 
+## 2026-11-08 — lineup — Only submitted slots enter; priority 1–3 decides the cut
+
+A lineup is still at most three tanks (your two rarest Credentials plus the
+white label), but a tank only enters once its slot has a submitted strategy. When
+a round has fewer arenas than your slots, `priority` 1–3 decides who plays (unset
+counts last), and cut slots are marked `benched` — no error, and they re-enter
+the next round. The white label is included by default, not guaranteed a seat.
+
+每次參賽仍是最多 3 輛（稀有度前 2 張憑證 + 白牌），但只有已提交策略的槽位才
+出賽。若本回合場次少於你的槽位數，依 `priority` 1–3 決定誰出戰（未設視為最後），
+其餘標記為 `benched`——不報錯，下一輪重新參與。白牌是預設納入，不保證一定有席位。
+
+## 2026-11-07 — grants — Issuance plans set a fixed daily amount per asset
+
+From 2026-11-07 UTC the pool pays out through **issuance plans**: each funding
+sets a total and a number of days and pays a fixed amount per day, split 20% to
+the 24 hourly contests and 80% to the daily top 100. Several assets (BNB or
+dev-approved tokens) may run plans on the same UTC day, so a day can pay in more
+than one asset; balances left unclaimed in an earlier asset stay claimable, and
+anything unallocated returns to that asset's available balance.
+
+自 2026-11-07 UTC 起，資助以**發放計劃**發放：每筆注資設定總額與發放天數，每日
+固定發放，其中 20% 給時段爭霸、80% 給日榜 TOP100。同一 UTC 日可並存多個資產
+（BNB 或 dev 核准代幣）的計劃，因此一天可能以多種資產發放；舊資產的未領餘額仍可
+領取，未分配金額回到該資產的可分配餘額。
+
 ## 2026-11-07 — grants — Grants expire 14 days after issuance
 
 A grant that is not claimed within **14 days** of being issued is forfeited
