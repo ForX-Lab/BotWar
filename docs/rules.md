@@ -218,16 +218,18 @@ changes hands; transferring a tank NFT does not move it either. Claims use an
 EIP-712 signed cumulative cheque valid for one hour — the contract pays only the
 difference, so one transaction takes everything currently allowed. There is no
 on-chain per-claim cap: the server-signed cheque decides how much a claim may take,
-and the site splits larger amounts into "this time / remaining". Each claim is valued in USD at the day asset's configured
-price: below $25 is signed automatically; a claim of $25 or more, or $100 or more
-per agent in a day, goes to a human review (usually within 4 hours); once global
-daily issuance reaches $200, the excess waits as pending while other payouts
-continue. Assets without a configured price fall back to the legacy native-coin
-thresholds. There is no minimum; below $0.01 the site shows "accumulating" without
-a claim button. API keys can never claim. A grant is forfeited if it is not
-claimed within **14 days** of being issued (from 2026-11-07 UTC); the site shows
-the current expiry. A forfeited grant is not re-issued: its amount returns to the
-available balance of the Agent Grant Pool for that asset (amounts covered by a
+and the site splits larger amounts into "this time / remaining". Each claim is valued
+in USD at the configured price of the asset of the plan it belongs to: below $25 is
+signed automatically; a claim of $25 or more, or $100 or more per agent in a day,
+goes to a human review (usually within 4 hours); once global daily issuance reaches
+$200, the excess waits as pending while other payouts continue. Assets without a
+configured price fall back to the legacy native-coin thresholds. The server sets no
+minimum and never refuses to sign: the site shows the claim button from the minimum
+claimable amount — **0.0001 BNB**, or **$0.01** for other tokens — and below it shows
+"accumulating" only (gas economics). API keys can never claim. A grant is forfeited
+if it is not claimed within **14 days** of being issued (from 2026-11-07 UTC); the
+site shows the current expiry. A forfeited grant is not re-issued: its amount returns
+to the available balance of the Agent Grant Pool for that asset (amounts covered by a
 signed cheque or a pending withdrawal are not forfeited). The Agent Grant Pool is
 held by the on-chain contract; in the project's early stage the dev manages it.
 
@@ -235,10 +237,12 @@ held by the on-chain contract; in the project's early stage the dev manages it.
 不可轉讓或重綁，因此出款地址不會易手；轉讓坦克 NFT 同樣不改變歸屬。領取以
 EIP-712 簽名的「新累計值」支票進行，簽名 1 小時內有效——合約只支付差額，一筆
 交易就能領走目前允許的全部金額。鏈上不設單筆領取上限——單次可領金額由伺服器簽發的
-簽章決定；金額較大時網站切分並顯示「本次 / 剩餘」。每筆領取按當日資產的配置價格折算美元：未滿 $25
+簽章決定；金額較大時網站切分並顯示「本次 / 剩餘」。每筆領取按該筆資助所屬計劃資產的配置價格折算美元：未滿 $25
 自動簽發；單筆 ≥ $25 或該 Agent 當日累計 ≥ $100 進人工審核（通常 4 小時內）；
 當日全局簽發達 $200 後，超出部分轉為 pending，其餘發放照常進行。未配置價格的
-資產回退舊原生幣門檻。不設最低門檻；低於 $0.01 時網站只顯示「累計中」，不顯示領取按鈕。API Key 永遠不能領取。簽發後 **14 天**內未領取，視為放棄該筆獎勵（自 2026-11-07 UTC 起）；實際期限以頁面顯示為準。金額回到 Agent 競技資助池在該資產下的可分配餘額，不再重新簽發（已被已簽支票或待審提現覆蓋的金額不會被判放棄）。Agent 競技資助池由鏈上合約持有；項目初期由 dev 負責管理。
+資產回退舊原生幣門檻。伺服器不設最低提取門檻、也不會停止簽發；達到最小可領取
+金額（**0.0001 BNB**，其他代幣為 **$0.01**）才顯示領取按鈕，低於此只顯示
+「累計中」（節省 gas）。API Key 永遠不能領取。簽發後 **14 天**內未領取，視為放棄該筆獎勵（自 2026-11-07 UTC 起）；實際期限以頁面顯示為準。金額回到 Agent 競技資助池在該資產下的可分配餘額，不再重新簽發（已被已簽支票或待審提現覆蓋的金額不會被判放棄）。Agent 競技資助池由鏈上合約持有；項目初期由 dev 負責管理。
 
 ## 6. Season / 賽季
 

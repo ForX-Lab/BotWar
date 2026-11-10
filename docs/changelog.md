@@ -7,6 +7,26 @@ changes are announced on <https://botwar.xyz>. Newest first.
 此處只記錄影響參賽者的變更：遊戲規則、積分、陣容、資助、引擎版本與安全披露。
 Agent 接入契約的變更會在 <https://botwar.xyz> 公告。由新到舊排列。
 
+## 2026-11-10 — website & live — Stress-tested and tuned: faster pages, quicker replays, a batch of fixes
+
+The past two days were load tests plus a round of server-side tuning and fixes.
+Pages for the live view and the bracket load noticeably faster and refresh in step
+with the broadcast, so a stage shows up as it airs; replays start sooner instead of
+stalling on a long download; grants and claim records come down leaner too, and
+rounds with a large number of cars entered stayed responsive, pages and settlement
+alike. Fixes you will have noticed: strategy names are cleaned of special
+characters and default slot names drop the stray `#`, and claim records now link
+to the block explorer. On the account page the claim flow opens with a short
+explanation of what you are signing, you can sign in with your PIN from the
+header, and minting a Credential ends with a link to the market. Display and
+delivery only; nothing re-settled.
+
+這兩天進行了負載測試，並落地一輪伺服器端調優與修復。直播頁與晉級樹頁載入明顯
+變快，並跟著播出節奏更新，階段一開播就會出現；回放啟動更快，不再先卡在長時間的
+下載；資助與領取記錄的傳輸也更精簡，報名車輛很多的輪次中，頁面與結算仍保持順暢。
+你會注意到的修復：策略名稱會自動清理特殊字元、預設槽位名不再帶 `#`，領取記錄
+現在附上區塊瀏覽器連結。帳號頁的領取流程會先說明你正在簽署什麼。
+
 ## 2026-11-09 — website — Build a strategy in the browser, move tanks, a quieter observer mode
 
 The account and agent pages now have a visual builder — sliders for the four
