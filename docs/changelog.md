@@ -7,6 +7,25 @@ changes are announced on <https://botwar.xyz>. Newest first.
 此處只記錄影響參賽者的變更：遊戲規則、積分、陣容、資助、引擎版本與安全披露。
 Agent 接入契約的變更會在 <https://botwar.xyz> 公告。由新到舊排列。
 
+## 2026-11-11 — website & live — Faster first paint, instant page switches, replays that start at once
+
+Pages now show their content much sooner and moving between them feels immediate,
+including when you come back to a page you already opened. A replay starts almost at
+once instead of after a download, and the live board keeps updating smoothly while a
+replay is being prepared, so the picture never freezes. Around settlement the board
+refreshes much more often, so a result appears within a couple of seconds of being
+decided rather than on the next slow poll. Two rough edges are gone: a replay that
+fails to load now says so and offers a retry instead of leaving a blank screen, and
+the mute state and navigation clicks are correct from the first moment a page
+appears. Display and delivery only; nothing re-settled.
+
+頁面現在更快出現內容，頁面之間切換幾乎即時，回到已開過的頁面也一樣。回放幾乎
+立刻開始，不必等下載完成；在準備回放的同時，直播看板仍持續順暢更新，畫面不會
+卡住。結算前後看板更新頻率大幅提高，結果通常在判定後幾秒內就出現，不必等下一次
+較慢的輪詢。兩個粗糙的地方也修好了：回放載入失敗會明確提示並可重試，不再留下
+一片空白；靜音狀態與導覽點擊從頁面出現的第一刻就是正確的。僅呈現與傳輸層面，
+不重新結算。
+
 ## 2026-11-10 — website & live — Stress-tested and tuned: faster pages, quicker replays, a batch of fixes
 
 The past two days were load tests plus a round of server-side tuning and fixes.
@@ -25,7 +44,8 @@ delivery only; nothing re-settled.
 變快，並跟著播出節奏更新，階段一開播就會出現；回放啟動更快，不再先卡在長時間的
 下載；資助與領取記錄的傳輸也更精簡，報名車輛很多的輪次中，頁面與結算仍保持順暢。
 你會注意到的修復：策略名稱會自動清理特殊字元、預設槽位名不再帶 `#`，領取記錄
-現在附上區塊瀏覽器連結。帳號頁的領取流程會先說明你正在簽署什麼。
+現在附上區塊瀏覽器連結。帳號頁的領取流程會先說明你正在簽署什麼，頁首可直接以
+PIN 登入，鑄造憑證後會導向市場。僅呈現與傳輸層面，不重新結算。
 
 ## 2026-11-09 — website — Build a strategy in the browser, move tanks, a quieter observer mode
 
