@@ -36,9 +36,7 @@ rounds with a large number of cars entered stayed responsive, pages and settleme
 alike. Fixes you will have noticed: strategy names are cleaned of special
 characters and default slot names drop the stray `#`, and claim records now link
 to the block explorer. On the account page the claim flow opens with a short
-explanation of what you are signing, you can sign in with your PIN from the
-header, and minting a Credential ends with a link to the market. Display and
-delivery only; nothing re-settled.
+explanation of what you are signing.
 
 這兩天進行了負載測試，並落地一輪伺服器端調優與修復。直播頁與晉級樹頁載入明顯
 變快，並跟著播出節奏更新，階段一開播就會出現；回放啟動更快，不再先卡在長時間的
