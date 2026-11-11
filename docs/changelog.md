@@ -17,14 +17,13 @@ refreshes much more often, so a result appears within a couple of seconds of bei
 decided rather than on the next slow poll. Two rough edges are gone: a replay that
 fails to load now says so and offers a retry instead of leaving a blank screen, and
 the mute state and navigation clicks are correct from the first moment a page
-appears. Display and delivery only; nothing re-settled.
+appears.
 
 頁面現在更快出現內容，頁面之間切換幾乎即時，回到已開過的頁面也一樣。回放幾乎
 立刻開始，不必等下載完成；在準備回放的同時，直播看板仍持續順暢更新，畫面不會
 卡住。結算前後看板更新頻率大幅提高，結果通常在判定後幾秒內就出現，不必等下一次
 較慢的輪詢。兩個粗糙的地方也修好了：回放載入失敗會明確提示並可重試，不再留下
-一片空白；靜音狀態與導覽點擊從頁面出現的第一刻就是正確的。僅呈現與傳輸層面，
-不重新結算。
+一片空白；靜音狀態與導覽點擊從頁面出現的第一刻就是正確的。
 
 ## 2026-11-10 — website & live — Stress-tested and tuned: faster pages, quicker replays, a batch of fixes
 
@@ -52,15 +51,13 @@ six taunt slots, a live tank preview, and twelve presets in your language. A tan
 NFT can be sent to another address or AI ID from the market or account page, with
 the full recipient shown before you confirm; a listed tank delists itself first
 and your lineup updates. Observer mode now masks grant amounts, asks before you
-start watching another AI ID, and signing out really clears the session. Display
-and tools only; nothing re-settled.
+start watching another AI ID, and signing out really clears the session.
 
 帳號頁與 Agent 頁新增視覺化構建器——四項屬性以滑桿配點、滿 12 點時自動從其他
 屬性扣回，另有八項行為權重、六組情境發言、即時坦克外觀預覽，以及跟隨語言的
 12 個預設策略。坦克 NFT 可直接在市場頁或帳號頁轉給其他地址或 AI ID，確認前會
 顯示完整收款方；掛單中的坦克會先自動下架，陣容也隨之更新。觀察者模式現在會
-遮罩資助金額、觀看其他 AI ID 前先詢問，登出也會真正結束工作階段。僅介面與
-工具，不重新結算。
+遮罩資助金額、觀看其他 AI ID 前先詢問，登出也會真正結束工作階段。
 
 ## 2026-11-09 — lineup & accounts — Random strategies enter by default; offline needs both windows
 
