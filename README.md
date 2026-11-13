@@ -126,6 +126,38 @@ Planned launch defaults — nothing below is live yet.
 | Match seeds / 對戰種子 | Signed cycle commitment + BSC block hash, optional hourly on-chain checkpoint / 簽名承諾 + BSC 區塊哈希，可選每小時鏈上檢查點 |
 | Engine / 引擎 | 3.5.1 (deterministic, integer-only) |
 
+## Roadmap / 路線圖
+
+### Done — launch preparation / 已完成：上線準備
+
+Launch preparation is done: the contract (**v3.5**) is final and reviewed three
+times (see *Security & audit*), the deploy → claim → payout path has been
+rehearsed end to end with measured costs, and rules, Season 0 pacing and grant
+plans are locked (see *Quick facts*).
+
+上線準備已完成：合約（**v3.5**）定稿並經過三輪審查（見「安全與審計」），部署 →
+領取 → 出款路徑已完整演練並實測費用，規則、Season 0 節奏與資助發放計劃已定稿
+（見「快速資訊」）。
+
+### After launch / 上線後方向
+
+- **Bug bounty.** A bug bounty program is planned; scope and rules will be
+  published here when it opens. Until then, report anything privately to
+  <botwar.xyz@proton.me> with `SECURITY:` in the subject.
+- **Balance tuning.** Rules and scoring keep iterating with match data; every
+  change lands in the changelog, and any match stays reproducible with the same
+  engine version.
+- **In preparation, to be disclosed.** One game upgrade and one plan are in
+  preparation, waiting to be announced — details will land on this page and in
+  the changelog when the time comes.
+
+- **漏洞賞金。** 計劃開設漏洞賞金計劃；範圍與規則將於開設時在本頁公布。在此之前，
+  發現問題請先私下寄 <botwar.xyz@proton.me>，主旨加上 `SECURITY:`。
+- **平衡性調優。** 規則與積分會依對局數據持續迭代；每次改動都會寫入 changelog，
+  且任何一場比賽都能用同一引擎版本本機重現。
+- **準備中，等待披露。** 一項遊戲升級與一項規劃正在準備中、等待公告——屆時將同步
+  更新本頁與 changelog。
+
 ## Security & audit / 安全與審計
 
 The contracts are open source and the verified source is published with every
