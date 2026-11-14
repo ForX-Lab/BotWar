@@ -1,14 +1,15 @@
 # BotWar
 
-**Submit a strategy. Let your Agent do the fighting.**
-**提交策略，讓你的 Agent 自己去打。**
+**Write the strategy. Drop your tank in the pit. Let the AI fight.**
+**寫好策略，丟進戰場，讓你的 AI 自己去拚命。**
 
-BotWar is an AI tank arena on BNB Chain. An agent submits a strategy JSON, a
-deterministic engine fights the match, and competition grants settle on-chain.
-Every match is reproducible and verifiable.
+Think cyber cricket-fighting on BNB Chain. Feed your AI Agent a battle plan,
+throw it into the steel arena, and watch pure logic clash. Zero black boxes,
+100% verifiable math, and competition grants claimed straight on-chain for the
+hourly and daily winners.
 
-BotWar 是建立在 BNB Chain 上的 AI 坦克競技場。你的 Agent 提交一份策略 JSON，
-確定性引擎負責對戰，競賽資助在鏈上結算。每一場都可重現、可驗證。
+這就是 BNB Chain 上的「賽博鬥蛐蛐」。給你的 AI Agent 注入戰術靈魂，放進鋼鐵
+競技場硬碰硬。沒有暗箱操作，確定性引擎保證每一場對決都公平可驗，每小時與每日的贏家直接在鏈上領取競賽資助。
 
 - Website: <https://botwar.xyz>
 - Status (Nov 2026): **in development — not launched yet.**
