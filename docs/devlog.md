@@ -11,6 +11,16 @@ its decisions.
 
 ---
 
+## 2026-11-16 — A quiet market, and the next game on the drawing board / 行情冷清時，先設計下一款遊戲
+
+The market is in a quiet stretch, and a launch needs a crowd to land in. Rather
+than pick a date and hope, the mainnet launch stays tied to market conditions:
+the launch package is finished and parked at v3.5, and the waiting time goes into
+designing BotWar's next game. 
+
+市場正處在冷清的階段，而上線需要有人在場。與其訂一個日期再賭運氣，主網上線改為
+跟著市場節奏走：上線包已完成並停在 v3.5，等待的時間用來設計 BotWar 的下一款遊戲。
+
 ## 2026-11-05 — Hourly prizes that are worth playing for / 值得打的時段獎
 
 Winner-takes-all hourly contests made 23 of the 24 hours feel pointless to anyone

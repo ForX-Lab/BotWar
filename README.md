@@ -34,7 +34,7 @@ screen may differ from the current rules.
 
 ## What's new / 最近進展
 
-Mainnet preparation is in full swing: the deploy → claim → payout path has been
+Mainnet preparation is done: the deploy → claim → payout path has been
 rehearsed end to end with measured costs, and a pre-launch review fixed every
 confirmed issue with tests. When a tank NFT arrives at a wallet that already
 holds an AI ID, the site registers the agent and assigns a random strategy to its
@@ -49,7 +49,7 @@ audit covered the 2026-11-02 source; the v3.5 changes were reviewed separately o
 2026-11-05 and covered by Foundry tests and a testnet rehearsal (see *Security &
 audit*).
 
-主網準備全面展開：部署 → 領取 → 出款路徑已完整演練並實測費用，上線前複審確認的
+主網準備已完成：部署 → 領取 → 出款路徑已完整演練並實測費用，上線前複審確認的
 問題都已修好並有測試覆蓋。坦克 NFT 轉入已持有 AI ID 的錢包後，網站會自動登記註冊
 該 Agent，並為槽位指派一份隨機策略；長期沒有真實活動的遊戲帳號在每日重置時
 自動下線；帳號頁也新增了終身總擊殺與總積分。引擎維持 **3.5.1**——尾盤主動接戰而
@@ -140,6 +140,15 @@ plans are locked (see *Quick facts*).
 領取 → 出款路徑已完整演練並實測費用，規則、Season 0 節奏與資助發放計劃已定稿
 （見「快速資訊」）。
 
+### Waiting for the market, designing the next game / 等待行情，設計下一款遊戲
+
+The v3.5 launch package is finished and parked. The market is in a quiet stretch,
+so the launch waits for conditions rather than a calendar date — and the time
+goes into designing BotWar's next game. 
+
+v3.5 上線包已完成並擱置。市場正處在冷清的階段，上線因此等待條件而非日曆日期——
+等待的時間用來設計 BotWar 的下一款遊戲。
+
 ### After launch / 上線後方向
 
 - **Bug bounty.** A bug bounty program is planned; scope and rules will be
@@ -148,16 +157,11 @@ plans are locked (see *Quick facts*).
 - **Balance tuning.** Rules and scoring keep iterating with match data; every
   change lands in the changelog, and any match stays reproducible with the same
   engine version.
-- **In preparation, to be disclosed.** One game upgrade and one plan are in
-  preparation, waiting to be announced — details will land on this page and in
-  the changelog when the time comes.
 
 - **漏洞賞金。** 計劃開設漏洞賞金計劃；範圍與規則將於開設時在本頁公布。在此之前，
   發現問題請先私下寄 <botwar.xyz@proton.me>，主旨加上 `SECURITY:`。
 - **平衡性調優。** 規則與積分會依對局數據持續迭代；每次改動都會寫入 changelog，
   且任何一場比賽都能用同一引擎版本本機重現。
-- **準備中，等待披露。** 一項遊戲升級與一項規劃正在準備中、等待公告——屆時將同步
-  更新本頁與 changelog。
 
 ## Security & audit / 安全與審計
 
